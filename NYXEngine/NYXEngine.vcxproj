@@ -130,7 +130,7 @@
       <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
     </Link>
     <Lib>
-      <AdditionalDependencies>$(SolutionDir)Include\SDL\lib\x86\SDL2.lib;$(SolutionDir)Include\SDL\lib\x86\SDL2main.lib;$(SolutionDir)Include\OpenGL\lib\freeglut.lib;$(SolutionDir)Include\OpenGL\lib\freeglutd.lib;$(SolutionDir)Include\SDL\lib\x86\SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)Include\SDL\lib\x86\SDL2.lib;$(SolutionDir)Include\SDL\lib\x86\SDL2main.lib;$(SolutionDir)Include\OpenGL\lib\freeglut.lib;$(SolutionDir)Include\OpenGL\lib\freeglutd.lib;$(SolutionDir)Include\SDL\lib\x86\SDL2_image.lib;$(SolutionDir)Include\OpenGL\lib\glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
@@ -148,7 +148,7 @@
       <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
     </Link>
     <Lib>
-      <AdditionalDependencies>$(SolutionDir)Include\SDL\lib\x86\SDL2.lib;$(SolutionDir)Include\SDL\lib\x86\SDL2main.lib;$(SolutionDir)Include\OpenGL\lib\freeglut.lib;$(SolutionDir)Include\OpenGL\lib\freeglutd.lib;$(SolutionDir)Include\SDL\lib\x86\SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)Include\SDL\lib\x86\SDL2.lib;$(SolutionDir)Include\SDL\lib\x86\SDL2main.lib;$(SolutionDir)Include\OpenGL\lib\freeglut.lib;$(SolutionDir)Include\OpenGL\lib\freeglutd.lib;$(SolutionDir)Include\SDL\lib\x86\SDL2_image.lib;$(SolutionDir)Include\OpenGL\lib\glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>

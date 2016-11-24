@@ -54,10 +54,11 @@ void GameEngine::Update() {
 }
 void GameEngine::Draw() {
 	Renderer->PreRender();
+	Renderer->Render();
 	Renderer->PostRender();
 }
 void GameEngine::GameLoop() {
-	Renderer->renderPrimitive(AbstractRenderer::PRIMITIVETYPE::TRIANGLE);
+	Renderer->BufferSetUp();
 	// Game loop
 	while (!quit)
 	{
