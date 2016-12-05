@@ -20,6 +20,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="ImageTextures.cpp" />
+    <ClCompile Include="Mesh.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controller.h">
@@ -65,5 +66,8 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ImageTextures.h" />
+    <ClInclude Include="Mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
