@@ -14,5 +14,5 @@ public:
 		RECT
 	};
 
-	virtual void renderPrimitive(PRIMITIVETYPE prim) = 0;
+	//virtual void renderPrimitive(PRIMITIVETYPE prim) = 0;
 };
