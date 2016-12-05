@@ -8,101 +8,16 @@
 static const GLfloat bg[] = { .10f, 0.0f, .20f, 1.0f };
 static const int NumVertices = 9;
 float angle;
-Model model;
 
-
-GLuint shaderProgram;
-GLuint VBO, VAO;
 OpenGLRenderer::OpenGLRenderer()
 {
 	//CameraOne = new Camera();
 }
 
-bool OpenGLRenderer::loadOBJ(const char* path, std::vector<glm::vec3> &out_vertices, std::vector<glm::vec2> &out_uvs, std::vector<glm::vec3> &out_normals)
-{
-	std::vector<unsigned int> vertexIndices, uvIndices, normalIndices;
-
-	std::vector<glm::vec3> temp_vertices;
-	std::vector<glm::vec2> temp_uvs;
-	std::vector<glm::vec3> temp_normals;
-
-	FILE* file;
-
-	file = fopen(path, "r");
-	if (file == NULL)
-	{
-		printf("CANNOT OPEN THE FILE\n");
-		return false;
-	}
-
-	while (1)
-	{
-		char lineHeader[128];
-
-		//read first word of line
-		int res = fscanf_s(file, "%s", lineHeader);
-
-		if (res == EOF)
-			break;
-
-		if (strcmp(lineHeader, "v") == 0)
-		{
-			glm::vec3 vertex;
-			fscanf_s(file, "%f %f %f\n", &vertex.x, &vertex.y, &vertex.z);
-			temp_vertices.push_back(vertex);
-		}
-		else if (strcmp(lineHeader, "vt") == 0)
-		{
-			glm::vec2 uv;
-			fscanf_s(file, "%f, %f\n", &uv.x, &uv.y);
-			temp_uvs.push_back(uv);
-		}
-		else if (strcmp(lineHeader, "vn") == 0)
-		{
-			glm::vec3 normal;
-			fscanf_s(file, "%f, %f, %f\n", &normal.x, &normal.y, &normal.z);
-			temp_normals.push_back(normal);
-		}
-		else if (strcmp(lineHeader, "f") == 0)
-		{
-			std::string vertex1, vertex2, vertex3;
-			unsigned int vertexIndex[3], uvIndex[3], normalIndex[3];
-			int matches = fscanf_s(file, "%d%d%d %d%d%d %d%d%d\n",
-				&vertexIndex[0], &uvIndex[0], &normalIndex[0],
-				&vertexIndex[1], &uvIndex[1], &normalIndex[1],
-				&vertexIndex[2], &uvIndex[2], &normalIndex[2]);
-			if (matches != 9)
-			{
-				printf("File can't be read by simple parser... :( try exporting with different options!");
-				return false;
-			}
-			vertexIndices.push_back(vertexIndex[0]);
-			vertexIndices.push_back(vertexIndex[1]);
-			vertexIndices.push_back(vertexIndex[2]);
-			uvIndices.push_back(uvIndex[0]);
-			uvIndices.push_back(uvIndex[1]);
-			uvIndices.push_back(uvIndex[2]);
-			normalIndices.push_back(normalIndex[0]);
-			normalIndices.push_back(normalIndex[1]);
-			normalIndices.push_back(normalIndex[2]);
-			for (unsigned int i = 0; i < vertexIndices.size(); i++)
-			{
-				unsigned int vertexIndex = vertexIndices[i];
-
-				glm::vec3 vertex = temp_vertices[vertexIndex - 1];
-
-				out_vertices.push_back(vertex);
-			}
-		}
-	}
-	fclose(file);
-
-}
-
 OpenGLRenderer::~OpenGLRenderer()
 {
 }
-void OpenGLRenderer::BufferSetUp()
+void OpenGLRenderer::renderPrimitive(PRIMITIVETYPE prim)
 {
 
 	///Shaders
@@ -185,12 +100,12 @@ void OpenGLRenderer::BufferSetUp()
 	//define vertex buffer objects
 	
 	// Define the number of buffers and vertex buffer objects attached
-	glGenVertexArrays(1, &VAO);
-	glGenBuffers(1, &VBO);
+	//glGenVertexArrays(1, &VAO);
+	//glGenBuffers(1, &VBO);
 	// Bind the Vertex Array Object first, then bind and set vertex buffer(s) and attribute pointer(s).
-	glBindVertexArray(VAO);
+	//glBindVertexArray(VAO);
 	//build a buffer for a VBO
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	//glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	// add verts to a buffer using the type of data then length and actull data
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
@@ -200,17 +115,44 @@ void OpenGLRenderer::BufferSetUp()
 	// Unbind VAO (it's always a good thing to unbind any buffer/array to prevent strange bugs)
 	glBindVertexArray(0); 
 
-	
-
-
-
-
 	/*
+=======
+	
+	glEnable(GL_DEPTH_TEST);
+>>>>>>> origin/master
 	ShaderInfo shaders[] = {
 		{ GL_VERTEX_SHADER, "triangles.vert" },
 		{ GL_FRAGMENT_SHADER, "triangles.frag" },
 		{ GL_NONE, NULL }
 	};
+	/*
+	glm::vec3 Verts[255];
+	glm::vec3 ColorData[255];
+	int VertLength = 9;
+	Verts[0] = glm::vec3(0, 1, 0);
+	Verts[1] = glm::vec3(-1, -1, 1);
+	Verts[2] = glm::vec3(1, -1, 1);
+
+	ColorData[0] = glm::vec3(0, 1, 0);
+	ColorData[1] = glm::vec3(0, 1, 0);
+	ColorData[2] = glm::vec3(0, 1, 0);
+
+	Verts[3] = glm::vec3(0, 1, 0);
+	Verts[4] = glm::vec3(-1, -1, 1);
+	Verts[5] = glm::vec3(0, -1, -1);
+	ColorData[3] = glm::vec3(1, 0, 0);
+	ColorData[4] = glm::vec3(1, 0, 0);
+	ColorData[5] = glm::vec3(1, 0, 0);
+
+	Verts[6] = glm::vec3(0, 1, 0);
+	Verts[7] = glm::vec3(0, -1, -1);
+	Verts[8] = glm::vec3(1, -1, 1);
+	ColorData[6] = glm::vec3(0, 0, 1);
+	ColorData[7] = glm::vec3(0, 0, 1);
+	ColorData[8] = glm::vec3(0, 0, 1);
+	*/
+	
+	//model.MakeShape(Model::PrimitiveShapes::Primide);
 
 	GLuint program = LoadShaders(shaders);
 	glUseProgram(program);
@@ -239,8 +181,6 @@ void OpenGLRenderer::BufferSetUp()
 	location2 = glGetUniformLocation(program, "camera_matrix");
 	location3 = glGetUniformLocation(program, "proj_matrix");
 	
-	model.LoadBuffer(shaders);
-	*/
 }
 
 void OpenGLRenderer::BufferSetUpBeta() {
@@ -316,10 +256,10 @@ void OpenGLRenderer::Render() {
 
 	glDrawArrays(GL_QUADS, 0, length);
 	glBindVertexArray(0);
+	glDrawArrays(GL_TRIANGLES, 0, 9);
 }
 void OpenGLRenderer::PostRender()
 {
-	glBindVertexArray(0);
 	//glDrawArrays(GL_TRIANGLES, 0, NumVertices);
 	glFlush();
 }

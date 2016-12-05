@@ -130,7 +130,7 @@
       <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
     </Link>
     <Lib>
-      <AdditionalDependencies>$(SolutionDir)Include\SDL\lib\x86\SDL2.lib;$(SolutionDir)Include\SDL\lib\x86\SDL2main.lib;$(SolutionDir)Include\OpenGL\lib\freeglut.lib;$(SolutionDir)Include\OpenGL\lib\freeglutd.lib;$(SolutionDir)Include\SDL\lib\x86\SDL2_image.lib;$(SolutionDir)Include\OpenGL\lib\glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)Include\SDL\lib\x86\SDL2.lib;$(SolutionDir)Include\SDL\lib\x86\SDL2main.lib;$(SolutionDir)Include\OpenGL\lib\freeglut.lib;$(SolutionDir)Include\OpenGL\lib\freeglutd.lib;$(SolutionDir)Include\SDL\lib\x86\SDL2_image.lib;$(SolutionDir)Include\Simple OpenGL Image Library\lib\SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
@@ -148,7 +148,7 @@
       <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
     </Link>
     <Lib>
-      <AdditionalDependencies>$(SolutionDir)Include\SDL\lib\x86\SDL2.lib;$(SolutionDir)Include\SDL\lib\x86\SDL2main.lib;$(SolutionDir)Include\OpenGL\lib\freeglut.lib;$(SolutionDir)Include\OpenGL\lib\freeglutd.lib;$(SolutionDir)Include\SDL\lib\x86\SDL2_image.lib;$(SolutionDir)Include\OpenGL\lib\glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)Include\SDL\lib\x86\SDL2.lib;$(SolutionDir)Include\SDL\lib\x86\SDL2main.lib;$(SolutionDir)Include\OpenGL\lib\freeglut.lib;$(SolutionDir)Include\OpenGL\lib\freeglutd.lib;$(SolutionDir)Include\SDL\lib\x86\SDL2_image.lib;$(SolutionDir)Include\Simple OpenGL Image Library\lib\SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
@@ -157,24 +157,32 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
     </Link>
+    <Lib>
+      <AdditionalDependencies>$(SolutionDir)Include\SDL\lib\x86\SDL2.lib;$(SolutionDir)Include\SDL\lib\x86\SDL2main.lib;$(SolutionDir)Include\OpenGL\lib\freeglut.lib;$(SolutionDir)Include\OpenGL\lib\freeglutd.lib;$(SolutionDir)Include\SDL\lib\x86\SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|arm'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
     </Link>
+    <Lib>
+      <AdditionalDependencies>$(SolutionDir)Include\SDL\lib\x86\SDL2.lib;$(SolutionDir)Include\SDL\lib\x86\SDL2main.lib;$(SolutionDir)Include\OpenGL\lib\freeglut.lib;$(SolutionDir)Include\OpenGL\lib\freeglutd.lib;$(SolutionDir)Include\SDL\lib\x86\SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -208,6 +216,7 @@
     <ClInclude Include="Hashtable.h" />
     <ClInclude Include="ImageTextures.h" />
     <ClInclude Include="LoadShaders.h" />
+    <ClInclude Include="Mesh.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="NYXEngine.h" />
     <ClInclude Include="OpenGLRenderer.h" />
@@ -223,6 +232,7 @@
     <ClCompile Include="GameEngine.cpp" />
     <ClCompile Include="ImageTextures.cpp" />
     <ClCompile Include="LoadShaders.cpp" />
+    <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="NYXEngine.cpp" />
     <ClCompile Include="OpenGLRenderer.cpp" />
