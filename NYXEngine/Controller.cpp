@@ -1,23 +1,19 @@
-#include "pch.h"
 #include "Controller.h"
 
 
-Controller::Controller()
-{
-}
 
-void Controller::AddController(int CdeviceID) {
-	if (SDL_IsGameController(CdeviceID)) {
-		controller = SDL_GameControllerOpen(CdeviceID);
-		if (controller)
-			return ;
-		else
-			printf("Could not open gamecontroller %i: %s\n", CdeviceID, SDL_GetError());
+Controller::Controller(int id)
+{
+	if (SDL_IsGameController(id)) {
+		pad = SDL_GameControllerOpen(id);
+		if (pad) {
+			joy = SDL_GameControllerGetJoystick(pad);
+			ID = SDL_JoystickInstanceID(joy);
+		}
 	}
 }
-void Controller::RemoveController(int CdeviceID) {
-	SDL_GameControllerClose(controller);
-	delete controller;
-	controller = nullptr;
-}
 
+
+Controller::~Controller()
+{
+}

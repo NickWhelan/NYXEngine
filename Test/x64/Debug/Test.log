@@ -1,0 +1,19 @@
+﻿Build started 12/07/16 5:36:12 PM.
+     1>Project "C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\Test\Test.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\x64\Debug\Test.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\\Debug" /LIBPATH:"C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\Include\SDL\lib\x86" /LIBPATH:"C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\Include\OpenGL\lib" NYXEngine.lib SDL2.lib SDL2main.lib freeglutd.lib glew32.lib opengl32.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\x64\Debug\Test.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\x64\Debug\Test.lib" /MACHINE:X64 x64\Debug\Main.obj
+     1>Main.obj : error LNK2019: unresolved external symbol "public: void __cdecl Window::setSize(float,float)" (?setSize@Window@@QEAAXMM@Z) referenced in function SDL_main
+     1>Main.obj : error LNK2019: unresolved external symbol "public: __cdecl NYX::NYX(void)" (??0NYX@@QEAA@XZ) referenced in function SDL_main
+     1>Main.obj : error LNK2019: unresolved external symbol "public: __cdecl NYX::~NYX(void)" (??1NYX@@QEAA@XZ) referenced in function "public: void * __cdecl NYX::`scalar deleting destructor'(unsigned int)" (??_GNYX@@QEAAPEAXI@Z)
+     1>MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+     1>C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\\Debug\NYXEngine.lib : warning LNK4272: library machine type 'X86' conflicts with target machine type 'x64'
+     1>C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\Include\SDL\lib\x86\SDL2.lib : warning LNK4272: library machine type 'X86' conflicts with target machine type 'x64'
+     1>C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\Include\SDL\lib\x86\SDL2main.lib : warning LNK4272: library machine type 'X86' conflicts with target machine type 'x64'
+     1>C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\Include\OpenGL\lib\freeglutd.lib : warning LNK4272: library machine type 'X86' conflicts with target machine type 'x64'
+     1>C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\Include\OpenGL\lib\glew32.lib : warning LNK4272: library machine type 'X86' conflicts with target machine type 'x64'
+     1>C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\x64\Debug\Test.exe : fatal error LNK1120: 4 unresolved externals
+     1>Done Building Project "C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\Test\Test.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.32

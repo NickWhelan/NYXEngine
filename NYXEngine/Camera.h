@@ -1,11 +1,19 @@
 #pragma once
+#include "OpenGL\include\glew.h"
+#include "glm\glm\glm.hpp"
 #include "glm\glm\gtc\matrix_transform.hpp"
 class Camera
 {
 public:
-	Camera();
-	glm::mat4 *camera_matrix, *projection_matrix;
-	float CamDist;
-	void RenderCam();
+	glm::mat4 Projection,View;
+	glm::vec3 Position, Direction, Up;
+	GLuint Shader;
+	GLuint cameraMatrix, projMatrixLoc;
+	Camera(glm::vec3 position, glm::vec3 lookAt, glm::vec3 up, GLuint program);
+	void Persepective(float fov, float aspect, float nearPlane, float farPlane);
+	void MoveCamera(glm::vec3 Offset);
+	void SetPosition(glm::vec3 Point);
+	void LookAt(glm::vec3 Point);
+	~Camera();
 };
 

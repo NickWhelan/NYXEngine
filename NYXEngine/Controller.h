@@ -1,13 +1,17 @@
 #pragma once
-#include <stdio.h>
 #include "SDL\Include\SDL_gamecontroller.h"
+#include "SDL\Include\SDL.h"
 class Controller
 {
 public:
-	Controller();
-	SDL_GameController* controller;
-	void AddController(int CdeviceID);
-	void RemoveController(int CdeviceID);
+	SDL_GameController *pad;
+	SDL_Joystick *joy;
+	int ID;
+
+	Controller(int id);
+	void RemoveController(int id);
+	void OnControllerButton(const SDL_ControllerButtonEvent sdlEvent);
+	void OnControllerAxis(const SDL_ControllerAxisEvent sdlEvent);
 	~Controller();
 };
 
