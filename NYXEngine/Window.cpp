@@ -43,8 +43,8 @@ void Window::WindowSetUp(float _Width, float _Height) {
 	}
 }
 void Window::setUpCamera(GLuint Program) {
-	//MainCam = new Camera(glm::vec3(0, 0, -10), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0), Program);
-	//MainCam->Persepective(45, 1, 1, 20);
+	MainCam = new Camera(glm::vec3(0, 0, -10), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0), Program);
+	MainCam->Persepective(45, 1, 1, 20);
 }
 void Window::setTitle(std::string Title) {
 	SDL_SetWindowTitle(WindowView, Title.c_str());

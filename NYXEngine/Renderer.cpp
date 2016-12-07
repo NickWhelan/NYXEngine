@@ -60,10 +60,7 @@ void Renderer::SetupShader() {
 	Program = LoadShaders(shaders);
 	glUseProgram(Program);
 }
-void update() {
-}
 void Renderer::Draw() {
-	update();
 	glBindVertexArray(VAO);
 	modelOrigin = glm::translate(glm::mat4(1.0), glm::vec3(0, 0,0));
 	modelOrigin = glm::rotate(glm::mat4(1.0), roateY, glm::vec3(0, 1, 0));

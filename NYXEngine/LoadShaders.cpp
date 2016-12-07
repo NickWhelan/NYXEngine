@@ -7,7 +7,7 @@
 #include <cstdlib>
 #include <iostream>
 
-#define GLEW_STATIC
+//#define GLEW_STATIC
 #include "OpenGL\include\glew.h"
 #include "LoadShaders.h"
 

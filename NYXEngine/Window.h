@@ -17,7 +17,7 @@ public:
 	SDL_GLContext WindowGlContext;
 	SDL_Renderer* SDLWindowRenderer;
 	SDL_Window* WindowView;
-	//Camera* MainCam;
+	Camera* MainCam;
 	float WIDTH, HEIGHT;
 
 	Window();

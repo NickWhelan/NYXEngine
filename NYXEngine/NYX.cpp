@@ -5,11 +5,8 @@
 NYX::NYX()
 {
 	printf("Hello");
-	window = new Window();
+	window = Window::GetInstance();
 	window->WindowSetUp(0, 0);
-	Model Thing;
-	//Thing.LoadMesh("Pyramid");
-	//game->window->setUpCamera(Thing.Render->Program);
 }
 
 NYX::~NYX()
