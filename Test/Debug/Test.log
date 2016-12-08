@@ -1,4 +1,4 @@
-﻿Build started 12/08/16 7:53:15 AM.
+﻿Build started 12/08/16 8:49:17 AM.
      1>Project "C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\Test\Test.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I"C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\NYXEngine" /I"C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\Include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
@@ -10,4 +10,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.46
+Time Elapsed 00:00:01.28
