@@ -4,6 +4,7 @@
 bool quit = false;
 SDL_Event SDLEvent;
 NYX* game;
+Window * window;
 Model* Thing;
 
 void update() {
@@ -11,23 +12,28 @@ void update() {
 	case SDL_EventType::SDL_QUIT:
 		quit = true;
 		break;
+	case SDL_KEYDOWN:
+		printf("%c\n",SDLEvent.key.keysym.sym);
 	}
 }
 void draw() {
-	glClearColor(255, 0, 0, 255);
+	glClearColor(0.5, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	Thing->Draw();
+	glFlush();
 	SDL_GL_SwapWindow(game->window->WindowView);
 }
 
 int main(int argc, char *argv[]) {
 	game = new NYX();
 	Thing = new Model();
-	game->window->setSize(800, 400);
+	window = game->window;
+	window->setSize(800, 400);
 	Thing->LoadMesh("Pyramid");
-	game->window->setUpCamera(Thing->Render->Program);
-	game->window->MainCam->SetPosition(glm::vec3(0, 0, -10));
-	game->window->setTitle("Test");
+	window->setUpCamera(Thing->Render->Program);
+	window->MainCam->SetPosition(glm::vec3(0, 0, -10));
+	window->MainCam->LookAt(glm::vec3(0, 0, 0));
+	window->setTitle("Test");
 	while (!quit) {
 		update();
 		draw();

@@ -4,7 +4,7 @@
 
 NYX::NYX()
 {
-	printf("Hello");
+	printf("Started NYX");
 	window = Window::GetInstance();
 	window->WindowSetUp(0, 0);
 }
