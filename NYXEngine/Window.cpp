@@ -44,8 +44,7 @@ void Window::WindowSetUp(float _Width, float _Height) {
 	}
 }
 void Window::setUpCamera(GLuint Program) {
-	MainCam = new Camera(glm::vec3(0, 0, -10), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0), Program);
-	MainCam->Persepective(45, 1, 1, 20);
+	MainCam = new Camera(glm::vec3(0, 0, 0), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0), Program);
 }
 void Window::setTitle(std::string Title) {
 	SDL_SetWindowTitle(WindowView, Title.c_str());
@@ -61,6 +60,7 @@ void Window::setSize(float _Width, float _Height) {
 	HEIGHT = _Height;
 	SDL_SetWindowSize(WindowView, _Width, _Height);
 	SDL_SetWindowPosition(WindowView,SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
+	
 }
 void Window::setFullScreen() {
 	if (SDL_WINDOW_FULLSCREEN){
@@ -74,7 +74,7 @@ void Window::setFullScreen() {
 Window::~Window()
 {
 	delete Instance;
-	//delete MainCam;
+	delete MainCam;
 	Instance = nullptr;
-	//MainCam = nullptr;
+	MainCam = nullptr;
 }

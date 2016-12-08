@@ -60,10 +60,14 @@ void Renderer::SetupShader() {
 	Program = LoadShaders(shaders);
 	glUseProgram(Program);
 }
+void Update() {
+	roateY +=0.001;
+}
 void Renderer::Draw() {
+	Update();
 	glBindVertexArray(VAO);
 	modelOrigin = glm::translate(glm::mat4(1.0), glm::vec3(0, 0,0));
-	modelOrigin = glm::rotate(glm::mat4(1.0), roateY, glm::vec3(0, 1, 0));
+	modelOrigin = glm::rotate(glm::mat4(1.0), roateY, glm::vec3(0, roateY, 0));
 	glUniformMatrix4fv(modelMatrix, 1, GL_FALSE, &modelOrigin[0][0]);
 	glDrawArrays(GL_TRIANGLES, 0, BufferLength);
 	glBindVertexArray(0);

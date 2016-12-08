@@ -6,7 +6,7 @@ class Camera
 {
 public:
 	glm::mat4 Projection,View;
-	glm::vec3 Position, Direction, Up;
+	glm::vec3 Position, Direction, Up,Rotation, MoveDirection;
 	GLuint Shader;
 	GLuint cameraMatrix, projMatrixLoc;
 	Camera(glm::vec3 position, glm::vec3 lookAt, glm::vec3 up, GLuint program);
@@ -14,6 +14,8 @@ public:
 	void MoveCamera(glm::vec3 Offset);
 	void SetPosition(glm::vec3 Point);
 	void LookAt(glm::vec3 Point);
+	void Rotate();
+	void FPSCamera();
 	~Camera();
 };
 
