@@ -1,10 +1,15 @@
-﻿Build started 12/09/16 12:47:05 AM.
+﻿Build started 12/09/16 12:57:09 AM.
      1>Project "C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\Test\Test.vcxproj" on node 2 (Build target(s)).
-     1>Link:
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I"C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\NYXEngine" /I"C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\Include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
+         Main.cpp
+     1>c:\users\nick\documents\humber game\year 3\nyxengine\test\main.cpp(17): warning C4305: 'initializing': truncation from 'double' to 'float'
+     1>c:\users\nick\documents\humber game\year 3\nyxengine\test\main.cpp(18): warning C4305: 'initializing': truncation from 'double' to 'float'
+       Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\Debug\Test.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\\Debug" /LIBPATH:"C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\Include\SDL\lib\x86" /LIBPATH:"C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\Include\OpenGL\lib" NYXEngine.lib SDL2.lib SDL2main.lib freeglutd.lib glew32.lib opengl32.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\Debug\Test.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\Debug\Test.lib" /MACHINE:X86 Debug\Main.obj
          Test.vcxproj -> C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\Debug\Test.exe
      1>Done Building Project "C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\Test\Test.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.28
+Time Elapsed 00:00:01.52

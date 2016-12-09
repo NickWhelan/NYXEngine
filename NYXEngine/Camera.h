@@ -14,6 +14,7 @@ public:
 	void MoveCamera(glm::vec3 Offset);
 	void SetPosition(glm::vec3 Point);
 	void LookAt(glm::vec3 Point);
+	void SetFrustum(float Left,float Right,float Bottom, float Top,float Near, float Far);
 	void Rotate();
 	void FPSCamera();
 	~Camera();

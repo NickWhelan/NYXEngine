@@ -92,6 +92,7 @@ int main(int argc, char *argv[]) {
 
 	MainCam = window->MainCam;
 	MainCam->SetPosition(glm::vec3(0, 0, -10));
+	MainCam->SetFrustum(-0.5f, 0.5f, -0.5f, 0.5f, 1.0f, 10000);
 	//SDL_SetRelativeMouseMode(SDL_TRUE);
 	SDL_ShowCursor(SDL_TRUE);
 	while (!quit) {

@@ -32,7 +32,10 @@ void Camera::Rotate() {
 	float y = glm::sin(Rotation.y);
 	LookAt(glm::vec3(x * YA, -y, z * YA));
 }
-
+void Camera::SetFrustum(float Left, float Right, float Bottom, float Top, float Near, float Far) {
+	Projection = glm::frustum(Left, Right, Bottom, Top, Near, Far);
+	glUniformMatrix4fv(projMatrixLoc, 1, GL_FALSE, &Projection[0][0]);
+}
 
 void Camera::MoveCamera(glm::vec3 Offset) {
 	Position.x += Offset.x;
