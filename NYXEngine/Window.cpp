@@ -6,7 +6,6 @@ Window::Window()
 }
 
 void Window::WindowSetUp(float _Width, float _Height) {
-	printf("hi");
 	WIDTH = _Width;
 	HEIGHT = _Height;
 	//Use OpenGL 3.1 core

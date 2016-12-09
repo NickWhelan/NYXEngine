@@ -94,7 +94,7 @@ void Mesh::MakePrinative(std::string Type) {
 		Colors.push_back(glm::vec3(0, 1, 0));
 	}
 }
-void Mesh::ImportMesh(std::string pFile) {
+void Mesh::ImportMesh(std::string pFile) {/*
 	const aiScene* scene = aiImportFile(pFile.c_str,
 		aiProcess_CalcTangentSpace |
 		aiProcess_Triangulate |

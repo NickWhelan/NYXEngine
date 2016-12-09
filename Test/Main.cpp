@@ -1,33 +1,22 @@
 #include "SDL\Include\SDL.h"
 #include "glm\glm\gtc\matrix_transform.hpp"
 #include "NYX.h"
-#include "Model.h"
+#include "Scene.h"
+#include "GameObject.h"
+
 bool quit = false;
 SDL_Event SDLEvent;
 NYX* game;
 Window * window;
 Camera* MainCam;
-Model* Thing;
+//Scene* MainScene;
+//Model* Thing;
+GameObject *Thing1, *Thing2, *Thing3;
+
 int MouseX, MouseY;
 const float  MouseSensitivity = 0.001;
 float Delta = 0.66;
-/*
-float x = glm::cos(cameraAngleX);
-float z = glm::sin(cameraAngleX);
-float YA = glm::cos(cameraAngleY);
-float y = glm::sin(cameraAngleY);
-//Vector3 position = window->GetCamera()->GetPosition();
-float vX = x * YA;
-float vZ = z * YA;
-if(Input::LockPointer)
-	window->GetCamera()->Look(Vector3(x * YA, -y, z * YA), Vector3(0, 1.0f, 0));
-Vector3 direction = glm::normalize(window->GetCamera()->GetDirection());
-direction.y = 0;
-Vector3 forward = direction * MoveDirection.x;
-Vector3 sideways = glm::cross(direction, Vector3(0, 1, 0)) * MoveDirection.z;
-window->GetCamera()->Move((forward + sideways) * 150.0f * Delta);
-window->GetCamera()->Move(Vector3(0, MoveDirection.y * 75.0f * Delta, 0));
-*/
+
 void update() {
 	while (SDL_PollEvent(&SDLEvent))
 	{
@@ -64,37 +53,43 @@ void update() {
 			}
 			break;
 		case SDL_MOUSEMOTION:
-			/*
+
 			SDL_GetMouseState(&MouseX, &MouseY);
 			//printf("mouse X:%d Y:%d", MouseX, MouseY);
-			float width = window->WIDTH / 2;
-			float height = window->HEIGHT / 2;
-			float aspect = width / height;
-			MainCam->Rotation.x += (MouseX - width) * MouseSensitivity;
-			MainCam->Rotation.y += (MouseY - height) * MouseSensitivity*aspect;
 			//MainCam->FPSCamera();
-			SDL_WarpMouseInWindow(window->WindowView, width, height);
-			*/
+			//SDL_WarpMouseInWindow(window->WindowView, width, height);
+			
 			break;
 		}
 	}
 	
 }
 void draw() {
-	glClearColor(0.5, 0, 0, 0);
+	glClearColor(0.5, 0, 0, 1);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	Thing->Draw();
-	//glFlush();
+	Thing1->Draw();
+	Thing2->Draw();
+	Thing3->Draw();
 	SDL_GL_SwapWindow(game->window->WindowView);
+}
+void loadModels() {
+	Thing1 = new GameObject("Thing1", "Pyramid", GL_TRUE);
+	Thing1->SetPosition(glm::vec3(-5, 0, 0));
+	Thing2 = new GameObject("Thing2", "Pyramid", GL_TRUE);
+	Thing3 = new GameObject("Thing3", "Pyramid", GL_TRUE);
+	Thing3->SetPosition(glm::vec3(5, 0, 0));
+	//MainScene->AddModel(Model("1"));
+	//MainScene->GetModel("1")->LoadMesh("Pyramid");
 }
 
 int main(int argc, char *argv[]) {
 	game = new NYX();
-	Thing = new Model();
 	window = game->window;
 	window->setTitle("Test");
-	Thing->LoadMesh("Pyramid");
-	window->setUpCamera(Thing->Render->Program);
+	loadModels();
+
+	window->setUpCamera(Thing1->ShaderProgram);
+
 	MainCam = window->MainCam;
 	MainCam->SetPosition(glm::vec3(0, 0, -10));
 	//SDL_SetRelativeMouseMode(SDL_TRUE);
@@ -103,9 +98,15 @@ int main(int argc, char *argv[]) {
 		update();
 		draw();
 	}
+	delete Thing1;
+	Thing1 = nullptr;
+	delete Thing2;
+	Thing2 = nullptr;
+	delete Thing2;
+	Thing2 = nullptr;
 	delete game;
 	game = nullptr;
-	delete Thing;
-	Thing= nullptr;
+	//delete MainScene;
+	//MainScene = nullptr;
 	return 0;
 }

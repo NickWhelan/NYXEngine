@@ -20,6 +20,7 @@ public:
 	GLuint Buffers[NumberOfBuffers];
 	GLuint VBO, VAO, Program, modelMatrix;
 	glm::mat4 modelOrigin;
+	glm::vec3 Position, Rotation;
 
 	int BufferLength=0;
 	Renderer();
@@ -27,6 +28,8 @@ public:
 	//void  BindDataToBuffers(std::vector<glm::vec3>* Points, std::vector<glm::vec3>* Colors);
 	void  BindDataToBuffers(Mesh* mesh);
 	void  SetupShader();
+	void PositionSetup(glm::vec3 _Position, glm::vec3 _Rotation);
+	void Update();
 	void Draw();
 	~Renderer();
 };

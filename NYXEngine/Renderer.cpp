@@ -1,9 +1,8 @@
 #include "Renderer.h"
-
-float roateY=0;
-
 Renderer::Renderer()
 {
+	//Position = new glm::vec3(0, 0, 0);
+	//Rotation = new glm::vec3(0, 0, 0);
 }
 
 void Renderer::BufferSetUp(GLuint const Program) {
@@ -61,13 +60,21 @@ void Renderer::SetupShader() {
 	glUseProgram(Program);
 }
 void Update() {
-	roateY +=0.001;
+	//roateY +=0.001;
+}
+void Renderer::PositionSetup(glm::vec3 _Position, glm::vec3 _Rotation) {
+	Position = _Position;
+	Rotation = _Rotation;
+}
+void Renderer::Update() {
+	modelOrigin = glm::mat4();
+
 }
 void Renderer::Draw() {
 	Update();
 	glBindVertexArray(VAO);
-	modelOrigin = glm::translate(glm::mat4(1.0), glm::vec3(0, 0,0));
-	modelOrigin = glm::rotate(glm::mat4(1.0), roateY, glm::vec3(0, roateY, 0));
+	modelOrigin += glm::translate(glm::mat4(1.0), Position);
+	modelOrigin = glm::rotate(modelOrigin, Rotation.y, glm::vec3(0, 1, 0));
 	glUniformMatrix4fv(modelMatrix, 1, GL_FALSE, &modelOrigin[0][0]);
 	glDrawArrays(GL_TRIANGLES, 0, BufferLength);
 	glBindVertexArray(0);

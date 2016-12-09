@@ -1,16 +1,18 @@
-﻿Build started 12/08/16 1:00:04 PM.
+﻿Build started 12/09/16 12:47:03 AM.
      1>Project "C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\NYXEngine\NYXEngine.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I"C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\Include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\NYXEngine.pdb" /Gd /TP /analyze- /errorReport:prompt Camera.cpp
-         Camera.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I"C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\Include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\NYXEngine.pdb" /Gd /TP /analyze- /errorReport:prompt Renderer.cpp
+         Renderer.cpp
        Lib:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\Lib.exe /OUT:"C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\Debug\NYXEngine.lib" "C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\Include\SDL\lib\x86\SDL2.lib" "C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\Include\SDL\lib\x86\SDL2main.lib" "C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\Include\OpenGL\lib\freeglutd.lib" "C:\Users\Nick\Documents\Humber Game\year 3\NYXEngine\Include\OpenGL\lib\glew32s.lib" opengl32.lib glu32.lib /NOLOGO Debug\Camera.obj
          Debug\Controller.obj
+         Debug\GameObject.obj
          Debug\LoadShaders.obj
          Debug\Mesh.obj
          Debug\Model.obj
          Debug\NYX.obj
          Debug\Renderer.obj
+         Debug\Scene.obj
          Debug\Window.obj
      1>freeglutd.lib(freeglut.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
      1>freeglutd.lib(freeglut.dll) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
@@ -23,4 +25,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.97
+Time Elapsed 00:00:01.23

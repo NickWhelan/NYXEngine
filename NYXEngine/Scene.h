@@ -11,7 +11,7 @@ public:
 
 	~Scene();
 private:
-	std::vector<Model> *Models;
+	std::vector<Model>* Models;
 	std::vector<GameObject> *GameObjects;
 	//std::vector<Texture> Textures;
 };

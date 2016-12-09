@@ -6,6 +6,7 @@ Model::Model(std::string _Name) {
 	Render->SetupShader();
 	Render->BufferSetUp(Render->Program);
 	Name = _Name;
+	//Render->PositionSetup(Pos, Rotation);
 }
 void Model::LoadMesh() {}
 void Model::LoadMesh(std::string Type) {
@@ -13,7 +14,8 @@ void Model::LoadMesh(std::string Type) {
 	Render->BindDataToBuffers(mesh);
 }
 void Model::Update() {
-	Rotation.y += 0.0005;
+	//Rotation.y += 1;
+	Render->Rotation.y += 0.001;
 }
 void Model::Draw() {
 	Update();
