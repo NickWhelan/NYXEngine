@@ -1,10 +1,11 @@
 #include "Model.h"
 
-Model::Model() {
+Model::Model(std::string _Name) {
 	mesh = new Mesh();
 	Render = new Renderer();
 	Render->SetupShader();
 	Render->BufferSetUp(Render->Program);
+	Name = _Name;
 }
 void Model::LoadMesh() {}
 void Model::LoadMesh(std::string Type) {

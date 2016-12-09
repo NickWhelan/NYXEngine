@@ -11,9 +11,9 @@ public:
 	Renderer* Render;
 	glm::vec3 Pos, Rotation;
 	int start,Length;
-	
+	std::string Name;
 
-	Model();
+	Model(std::string _Name);
 	void LoadMesh();
 	void LoadMesh(std::string Type);
 	void Update();

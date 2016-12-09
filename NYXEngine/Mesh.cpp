@@ -94,7 +94,28 @@ void Mesh::MakePrinative(std::string Type) {
 		Colors.push_back(glm::vec3(0, 1, 0));
 	}
 }
-void Mesh::setupMesh() {}
+void Mesh::ImportMesh(std::string pFile) {
+	const aiScene* scene = aiImportFile(pFile.c_str,
+		aiProcess_CalcTangentSpace |
+		aiProcess_Triangulate |
+		aiProcess_JoinIdenticalVertices |
+		aiProcess_SortByPType);
+	if (scene->HasMeshes) {
+		for (int i = 0; i < scene->mMeshes[0]->mNumVertices; i++)
+			Vertices.push_back(glm::vec3(
+				scene->mMeshes[0]->mVertices->x,
+				scene->mMeshes[0]->mVertices->y,
+				scene->mMeshes[0]->mVertices->z));
+	}
+	/*
+	GLuint shaderUVs = glGetAttribLocation(programID, "vTexCoord");
+	if (data.hasTexture)
+	{
+		glEnableVertexAttribArray(shaderUVs);
+		glVertexAttribPointer(shaderUVs, 2, GL_FLOAT, GL_FALSE, 0, (GLvoid*)(sizeof(vec3) * data.numVertices * 2));
+		glBindTexture(GL_TEXTURE_2D, *(*gameObject)->textureId);
+	}*/
+}
 
 Mesh::~Mesh() {
 	Vertices.clear();
